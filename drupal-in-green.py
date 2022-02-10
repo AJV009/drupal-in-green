@@ -8,7 +8,7 @@ def main():
     if len(sys.argv) == 2:
         uname = sys.argv[1]
     else:
-        return "Usage: fetch.py <username>"
+        return "Usage: drupal-in-green.py <username>"
     try:
         url = urlGen(uname, page)
         response = requests.get(url)

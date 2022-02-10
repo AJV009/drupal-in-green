@@ -9,8 +9,8 @@ def main():
         uname = sys.argv[1]
     else:
         return "Usage: drupal-in-green.py <username>"
+    url = urlGen(uname, page)
     try:
-        url = urlGen(uname, page)
         response = requests.get(url)
         data = response.json()
         if 'list' in data and data['list']:
@@ -39,7 +39,7 @@ def main():
             return 'No Data'
     except:
         print("Error in fetching data")
-        print("Please check if the API is working by visiting https://www.drupal.org/api-d7/comment.json?name=" + uname + "&page=0")
+        print("Please check if the API is working by visiting " + url)
         print("on your browser and also check see if the username is valid by checking if the list key empty or not")
         return sys.exc_info()[0]
 

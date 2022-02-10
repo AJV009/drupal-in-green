@@ -19,6 +19,7 @@ def main():
             for i in range(int(page_count) + 1):
                 created_time.extend(fetch(urlGen(uname, i)))
             if created_time != []:
+                print("NOTICE: Fetched all data.")
                 if os.path.exists('data.txt'):
                     os.remove('data.txt')
                 os.system('git checkout --orphan latest_branch')
